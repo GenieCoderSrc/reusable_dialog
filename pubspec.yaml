@@ -1,7 +1,10 @@
 name: reusable_dialog
-description: "A new Flutter package project."
+description: "A customizable and reusable dialog package for Flutter, providing flexible alert dialogs with styled buttons and easy integration."
 version: 0.0.1
-homepage:
+homepage: https://github.com/GenieCoderSrc/reusable_dialog
+repository: https://github.com/GenieCoderSrc/reusable_dialog
+issue_tracker: https://github.com/GenieCoderSrc/reusable_dialog/issues
+
 
 environment:
   sdk: ^3.7.2
@@ -10,7 +13,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-
+  app_style: ^0.0.1
+  reusable_button: ^0.0.1
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -22,6 +26,8 @@ dev_dependencies:
 # The following section is specific to Flutter packages.
 flutter:
 
+example:
+  path: example
   # To add assets to your package, add an assets section, like this:
   # assets:
   #   - images/a_dot_burr.jpeg
