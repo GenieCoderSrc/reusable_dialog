@@ -13,8 +13,13 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  app_style: ^0.0.1
-  reusable_button: ^0.0.1
+
+  app_style:
+    path: ../app_style
+
+  reusable_button:
+    path: ../reusable_button
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
