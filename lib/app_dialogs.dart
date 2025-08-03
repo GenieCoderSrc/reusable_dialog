@@ -2,11 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:reusable_dialog/custom_alert_dialog.dart';
 
 class AppDialog {
-  static void warning(
-      {required BuildContext context,
-      String? title,
-      String? msg,
-      required VoidCallback onOk}) {
+  static void warning({
+    required BuildContext context,
+    String? title,
+    String? msg,
+    required VoidCallback onOk,
+  }) {
     return CustomDialog.show(
       context: context,
       title: title,

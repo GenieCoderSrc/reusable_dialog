@@ -1,8 +1,4 @@
-// import 'package:core/styles/padding_constant.dart';
-// import 'package:core/styles/google_ubuntu_fonts_txt_styles.dart';
-// import 'package:core/widgets/button/app_txt_btn.dart';
 import 'package:flutter/material.dart';
-import 'package:app_style/app_style.dart';
 import 'package:reusable_button/app_txt_btn.dart';
 
 class CustomDialog {
@@ -13,74 +9,79 @@ class CustomDialog {
 
   CustomDialog.internal();
 
-  static void show(
-      {required BuildContext context,
-      String? title,
-      Widget? child,
-      String? okBtnTxt,
-      String? cancelBtnTxt,
-      Color? okBtnTxtColor,
-      Color? cancelBtnTxtColor,
-      Function? onCancel,
-      required VoidCallback onOk}) {
+  static void show({
+    required BuildContext context,
+    String? title,
+    Widget? child,
+    String? okBtnTxt,
+    String? cancelBtnTxt,
+    Color? okBtnTxtColor,
+    Color? cancelBtnTxtColor,
+    Function? onCancel,
+    required VoidCallback onOk,
+  }) {
     try {
       _context = context;
 
       showDialog(
-          context: context,
-          builder: (BuildContext cntx) {
-            // set up the button
-            final Widget cancelBtn = cancelBtnTxt == null
-                ? TextButton(
-                    onPressed: () {},
-                    child: Container(),
-                  )
-                : TextButton(
-                    onPressed: onCancel as void Function()? ?? cancelDialog,
-                    child: Text(
-                      cancelBtnTxt,
-                      style: TextStyle(color: cancelBtnTxtColor),
-                    ));
+        context: context,
+        builder: (BuildContext cntx) {
+          final theme = Theme.of(cntx);
 
-            final Widget okBtn = okBtnTxt == null
-                ? TextButton(
-                    onPressed: () {},
-                    child: Container(),
-                  )
-                : AppTxtBtn(
-                    onPressed: onOk,
-                    btnTextColor: okBtnTxtColor ?? Colors.green[900],
-                    btnText: okBtnTxt,
-                  );
+          // Cancel button
+          final Widget cancelBtn = cancelBtnTxt == null
+              ? const SizedBox.shrink()
+              : TextButton(
+            onPressed: onCancel as void Function()? ?? cancelDialog,
+            child: Text(
+              cancelBtnTxt,
+              style: TextStyle(color: cancelBtnTxtColor ?? Colors.grey),
+            ),
+          );
 
-            return AlertDialog(
-              title: Text(
-                title ?? '',
-                style: AppTxtStyles.kMidTitleTextStyle,
-              ),
+          // OK button
+          final Widget okBtn = okBtnTxt == null
+              ? const SizedBox.shrink()
+              : AppTxtBtn(
+            onPressed: onOk,
+            btnTextColor: okBtnTxtColor ?? Colors.green[900],
+            btnText: okBtnTxt,
+          );
 
-              /* Here add your custom widget  */
-              content: child,
-              actions: <Widget>[
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: <Widget>[
-                    cancelBtn,
-                    okBtn,
-                  ],
-                )
-              ],
-              shape: const RoundedRectangleBorder(
-                  // borderRadius: BorderRadius.circular(kHPadding),
+          return AlertDialog(
+            title: Text(
+              title ?? '',
+              style: theme.textTheme.titleMedium?.copyWith(
+                fontWeight: FontWeight.w600,
+                fontSize: 18,
+              ) ??
+                  const TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.w600,
                   ),
-              elevation: 0.0,
-            );
-          });
+            ),
+            content: child,
+            actions: <Widget>[
+              Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: <Widget>[
+                  cancelBtn,
+                  const SizedBox(width: 12),
+                  okBtn,
+                ],
+              ),
+            ],
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(12.0),
+            ),
+            elevation: 0.0,
+          );
+        },
+      );
     } catch (e) {
-      debugPrint('CustomDialog | show | error: $e ');
+      debugPrint('CustomDialog | show | error: $e');
     }
   }
 
   static void cancelDialog() => Navigator.of(_context).pop();
 }
-// Token saved error
