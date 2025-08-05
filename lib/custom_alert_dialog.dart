@@ -32,43 +32,37 @@ class CustomDialog {
           final Widget cancelBtn = cancelBtnTxt == null
               ? const SizedBox.shrink()
               : TextButton(
-            onPressed: onCancel as void Function()? ?? cancelDialog,
-            child: Text(
-              cancelBtnTxt,
-              style: TextStyle(color: cancelBtnTxtColor ?? Colors.grey),
-            ),
-          );
+                  onPressed: onCancel as void Function()? ?? cancelDialog,
+                  child: Text(
+                    cancelBtnTxt,
+                    style: TextStyle(color: cancelBtnTxtColor ?? Colors.grey),
+                  ),
+                );
 
           // OK button
           final Widget okBtn = okBtnTxt == null
               ? const SizedBox.shrink()
               : AppTxtBtn(
-            onPressed: onOk,
-            btnTextColor: okBtnTxtColor ?? Colors.green[900],
-            btnText: okBtnTxt,
-          );
+                  onPressed: onOk,
+                  btnTextColor: okBtnTxtColor ?? Colors.green[900],
+                  btnText: okBtnTxt,
+                );
 
           return AlertDialog(
             title: Text(
               title ?? '',
-              style: theme.textTheme.titleMedium?.copyWith(
-                fontWeight: FontWeight.w600,
-                fontSize: 18,
-              ) ??
-                  const TextStyle(
-                    fontSize: 18,
+              style:
+                  theme.textTheme.titleMedium?.copyWith(
                     fontWeight: FontWeight.w600,
-                  ),
+                    fontSize: 18,
+                  ) ??
+                  const TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
             ),
             content: child,
             actions: <Widget>[
               Row(
                 mainAxisAlignment: MainAxisAlignment.end,
-                children: <Widget>[
-                  cancelBtn,
-                  const SizedBox(width: 12),
-                  okBtn,
-                ],
+                children: <Widget>[cancelBtn, const SizedBox(width: 12), okBtn],
               ),
             ],
             shape: RoundedRectangleBorder(
