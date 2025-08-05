@@ -14,10 +14,8 @@ dependencies:
   flutter:
     sdk: flutter
 
-  app_style:
-    path: ../app_style
-  reusable_button:
-    path: ../reusable_button
+  app_style: ^0.0.4
+  reusable_button: ^0.0.2
 
 dev_dependencies:
   flutter_test:
