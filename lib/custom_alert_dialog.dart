@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:reusable_button/app_txt_btn.dart';
+import 'package:reusable_button/reusable_button.dart';
 
 class CustomDialog {
   static final CustomDialog _instance = CustomDialog.internal();
