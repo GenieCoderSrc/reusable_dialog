@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:reusable_button/reusable_button.dart';
 
 class CustomDialog {
   static final CustomDialog _instance = CustomDialog.internal();
@@ -42,10 +41,12 @@ class CustomDialog {
           // OK button
           final Widget okBtn = okBtnTxt == null
               ? const SizedBox.shrink()
-              : AppTxtBtn(
+              : TextButton(
                   onPressed: onOk,
-                  btnTextColor: okBtnTxtColor ?? Colors.green[900],
-                  btnText: okBtnTxt,
+                  child: Text(
+                    okBtnTxt,
+                    style: TextStyle(color: okBtnTxtColor ?? Colors.green[900]),
+                  ),
                 );
 
           return AlertDialog(
