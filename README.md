@@ -12,6 +12,8 @@ A lightweight and customizable dialog package for Flutter, designed to streamlin
 Add the dependency to your `pubspec.yaml`:
 
 ```yaml
+resolution: workspace
+
 dependencies:
   reusable_dialog: <latest_version>
 ```
