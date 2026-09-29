@@ -1,0 +1,12 @@
+name: reusable_dialog
+description: "A customizable and reusable dialog package for Flutter, providing flexible alert dialogs with styled buttons and easy integration."
+version: 0.0.3
+homepage: https://github.com/GenieCoderSrc/reusable_dialog
+repository: https://github.com/GenieCoderSrc/reusable_dialog
+issue_tracker: https://github.com/GenieCoderSrc/reusable_dialog/issues
+
+
+environment:
+  sdk: \x27>=3.6.0 <4.0.0\x27
+  resolution: workspace
+    flutter: ">=3.0.0"
