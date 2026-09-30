@@ -52,8 +52,7 @@ class CustomDialog {
           return AlertDialog(
             title: Text(
               title ?? '',
-              style:
-                  theme.textTheme.titleMedium?.copyWith(
+              style: theme.textTheme.titleMedium?.copyWith(
                     fontWeight: FontWeight.w600,
                     fontSize: 18,
                   ) ??
